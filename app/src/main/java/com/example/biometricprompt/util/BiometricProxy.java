@@ -23,7 +23,7 @@ public class BiometricProxy {
         this.interfaceBiometricError = interfaceBiometricError;
         this.interfaceBiometricSuccess = interfaceBiometricSuccess;
         try {
-            this.signature = UtilCripto.initSignature(key);
+            this.signature = UtilCriptos.initSignature(key);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

@@ -12,14 +12,11 @@ import java.security.Signature;
 import java.security.spec.ECGenParameterSpec;
 
 import androidx.annotation.Nullable;
+//SOLO PARA DEMO reemplazar
+public class UtilCriptos {
 
-public class UtilCripto {
-
-
-    /**
-     * Generate NIST P-256 EC Key pair for signing and verification
-     */
-    public static KeyPair generateKeyPair(String keyName, boolean invalidatedByBiometricEnrollment) throws Exception {
+ //only demo reemplazar
+    public static KeyPair buildKey(String keyName, boolean invalidatedByBiometricEnrollment) throws Exception {
         KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(KeyProperties.KEY_ALGORITHM_EC, "AndroidKeyStore");
 
         KeyGenParameterSpec.Builder builder = new KeyGenParameterSpec.Builder(keyName,
@@ -37,9 +34,8 @@ public class UtilCripto {
 
         return keyPairGenerator.generateKeyPair();
     }
-
-    @Nullable
-    private static KeyPair getKeyPair(String keyName) throws Exception {
+    //SOLO PARA DEMO reemplazar
+     private static KeyPair getKey(String keyName) throws Exception {
         KeyStore keyStore = KeyStore.getInstance("AndroidKeyStore");
         keyStore.load(null);
         if (keyStore.containsAlias(keyName)) {
@@ -52,10 +48,9 @@ public class UtilCripto {
         }
         return null;
     }
-
-    @Nullable
-    public static Signature initSignature(String keyName) throws Exception {
-        KeyPair keyPair = getKeyPair(keyName);
+    //SOLO PARA DEMO reemplazar
+     public static Signature initSignature(String keyName) throws Exception {
+        KeyPair keyPair = getKey(keyName);
 
         if (keyPair != null) {
             Signature signature = Signature.getInstance("SHA256withECDSA");
